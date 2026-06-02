@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cd saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of && npm install && npm run build",
+    "build": "cd saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of && npm install --include=dev && npm run build",
     "dev": "cd saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of && npm run dev",
     "start": "cd saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
