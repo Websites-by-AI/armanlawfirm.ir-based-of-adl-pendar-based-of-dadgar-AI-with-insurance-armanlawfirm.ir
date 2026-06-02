@@ -114,14 +114,16 @@ GitHub ──► Cloudflare Pages
 
 ### Step 2: Build Configuration
 
+> ✅ `wrangler.toml` at the repo root auto-configures the build — just fill in the table below exactly as shown.
+
 | Setting | Value |
 |---------|-------|
 | **Project name** | `armanlawfirm` |
 | **Production branch** | `main` |
 | **Framework preset** | `None` |
-| **Root directory** | `saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of` |
-| **Build command** | `npm install && npm run build` |
-| **Build output directory** | `dist` |
+| **Root directory** | *(leave blank — use repo root)* |
+| **Build command** | `npm run build` |
+| **Build output directory** | `saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of/dist` |
 
 ### Step 3: Environment Variables
 Go to **Settings → Environment Variables → Add variable**:
