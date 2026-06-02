@@ -1,0 +1,173 @@
+I'll help you create an improved legal services website for Arma Law Firm in Persian/Farsi, with AI consultation, database integration, and map finder features. Let me first gather more information about the referenced sites and set up the project.
+
+
+Show 2 more
+
+Searched Replit's integrations for "gemini api"
+
+Decided on next steps approach (5 seconds)
+Let me explore the existing project structure and understand the current state:
+
+
+Show 4 more
+
+Opened index.html
+
+Decided on project setup approach (4 seconds)
+I see this is an existing law firm website project. Let me set up the development environment and create a plan to enhance it based on your requirements.
+
+
+Show 3 more
+
+Executed npm install
+
+Decided on port configuration
+Let me set up the Vite configuration for port 5000 and configure the workflow:
+
+
+Show 4 more
+
+Configured Arman Law Firm to run npm run dev
+
+Requested GEMINI_API_KEY from user
+I need to request the Gemini API key from you to power the AI features. Let me set that up:
+
+برای فعال‌سازی قابلیت‌های هوش مصنوعی سایت، لطفا کلید API جمینی (Gemini API Key) خود را وارد کنید. اگر کلید ندارید، می‌توانید از https://aistudio.google.com دریافت کنید.
+
+1 secret requested
+•
+
+See all secrets
+GEMINI_API_KEY
+Would you like to save this Secret to your Account Secrets so you can easily access it in other Apps?
+
+Add to Account Secrets
+
+Not now
+Worked for 3 minutes
+
+Show 4 more
+
+Opened components/Hero.tsx
+
+Decided on next development steps
+The site is running. Now let me create the Map Finder component and improve the website with the features you mentioned. Let me fix the fonts first and then add the new features:
+
+Set up site for building
+
+Show 6 more
+
+Opened components/Hero.tsx
+
+Planned MapFinder component integration (4 seconds)
+I'm continuing with task #2 - creating the Map Finder component. Let me create the component and add it to the app.
+
+
+Created components/MapFinder.tsx
+
+Decided on routing structure
+Now I need to add MapFinder to the App.tsx. Let me read the rest of App.tsx to find the render section and add the import:
+
+
+Opened App.tsx
+
+Decided on MapFinder integration
+Now I need to add the MapFinder import and case in App.tsx. Let me first check the types file for PageKey:
+
+
+Executed rg 'type PageKey' types.ts
+
+Decided on MapFinder integration
+Let me update the types and App.tsx to add the MapFinder:
+
+
+Show 3 more
+
+Edited types.ts
+
+Added map finder to routes
+Now I need to add the MapFinder import and case to App.tsx:
+
+
+Edited App.tsx
+
+Decided on map_finder rendering
+Now let me add the map_finder case in the renderPage function:
+
+
+Edited App.tsx
+
+Decided on navigation link placement
+Now I need to add a navigation link to the Map Finder in the Header. Let me check the Header component:
+
+
+Show 2 more
+
+Opened components/Header.tsx
+
+Decided on map_finder tool placement
+Let me add the map_finder to the navigation. I'll add it to the "Search & Connect" group:
+
+
+Edited components/Header.tsx
+
+Planned MapFinder component integration
+Now let me restart the workflow and update the task list to mark task 2 as completed and continue with task 3:
+
+
+Show 2 more
+
+Took a screenshot
+
+Decided on hero section enhancements (6 seconds)
+The site is running. Now let me work on task 3 - improving the Hero section. I'll add prominent service feature cards for the requested Persian features (مشاوره, فریادرسی, وقت مشاوره حضوری) and add a link to the Map Finder. Let me read more of the Hero component:
+
+
+Opened components/Hero.tsx
+
+Decided on service card layout
+Now let me add a prominent services section with the requested Persian features after the stats section. I'll add quick action cards for مشاوره, فریادرسی, وقت مشاوره حضوری, and also add a link to Map Finder:
+
+
+Edited components/Hero.tsx
+
+Verified quick services card display
+Let me restart the workflow and verify the changes:
+
+
+Show 2 more
+
+Took a screenshot
+
+Reviewed architectural changes (5 seconds)
+The site is running. Let me now update the task list and run the architect review on all changes made:
+
+
+Reviewed changes with architect
+
+Reviewed Map Finder and Hero section
+
+Decided on task completion status
+The architect review passed. Let me finalize the tasks and update the persisted information:
+
+
+Completed tasks
+
+Created ./replit.md
+
+Created new context and persisted state
+
+Decided on task completion notification
+All tasks have been completed successfully! Here's what I've accomplished:
+
+Map Finder Component - Created a new page that embeds the external map service, allowing users to find nearby legal offices and lawyers on an interactive map.
+
+Enhanced Hero Section - Added a modern "Quick Services" section with 4 prominent service cards featuring:
+
+مشاوره حقوقی (Legal Consultation) - Opens the AI assistant
+فریادرسی (Emergency Assistance) - Quick access to urgent help
+وقت مشاوره حضوری (In-person Booking) - Schedule appointments
+نقشه یاب حقوقی (Map Finder) - Find nearby offices
+All features are in Persian with proper RTL layout, matching the ailawyer.pro style you requested. The navigation menu has also been updated to include the Map Finder.
+
+Your site is ready for deployment! Would you like me to help you publish it so it's accessible to your users?

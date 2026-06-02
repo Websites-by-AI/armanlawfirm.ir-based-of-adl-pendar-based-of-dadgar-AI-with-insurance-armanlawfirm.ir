@@ -1,0 +1,50 @@
+modules = ["nodejs-20", "postgresql-16", "python-3.11"]
+[nix]
+channel = "stable-25_05"
+packages = ["unzip"]
+
+[agent]
+expertMode = true
+integrations = ["javascript_log_in_with_replit:1.0.0", "github:1.0.0"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Arman Law Firm"
+
+[[workflows.workflow]]
+name = "Arman Law Firm"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd /home/runner/workspace/saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of && npm run dev"
+waitForPort = 5000
+
+[[ports]]
+localPort = 3001
+externalPort = 3001
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 5001
+externalPort = 3002
+
+[userenv]
+
+[userenv.shared]
+SUPABASE_URL = "https://vemzvvveaseghlhjmnqy.supabase.co"
+SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlbXp2dnZlYXNlZ2hsaGptbnF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2ODc4MzMsImV4cCI6MjA4MDI2MzgzM30._R_4_XpDmo9KVr1UhM6UJqLwAwAdtjF1kmKtIr827zY"

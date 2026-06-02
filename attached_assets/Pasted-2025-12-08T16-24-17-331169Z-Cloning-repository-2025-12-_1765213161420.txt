@@ -1,0 +1,56 @@
+2025-12-08T16:24:17.331169Z	Cloning repository...
+2025-12-08T16:24:18.154053Z	From https://github.com/Heroku-elasa/armanlawfirm.ir-based-of-adl-pendar-based-of-dadgar-AI-with-insurance-armanlawfirm.ir
+2025-12-08T16:24:18.154534Z	 * branch            2bc183942435aae6b0d5cd4eebaddc01ae1f6a3c -> FETCH_HEAD
+2025-12-08T16:24:18.154639Z	
+2025-12-08T16:24:18.209939Z	HEAD is now at 2bc1839 Add files via upload
+2025-12-08T16:24:18.210363Z	
+2025-12-08T16:24:18.287212Z	
+2025-12-08T16:24:18.28786Z	Using v2 root directory strategy
+2025-12-08T16:24:18.310905Z	Success: Finished cloning repository files
+2025-12-08T16:24:20.539684Z	Checking for configuration in a Wrangler configuration file (BETA)
+2025-12-08T16:24:20.540736Z	
+2025-12-08T16:24:21.639786Z	No wrangler.toml file found. Continuing.
+2025-12-08T16:24:21.705706Z	Detected the following tools from environment: npm@10.9.2, nodejs@22.16.0
+2025-12-08T16:24:21.706302Z	Installing project dependencies: npm clean-install --progress=false
+2025-12-08T16:24:24.512997Z	npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2025-12-08T16:24:26.550889Z	
+2025-12-08T16:24:26.551201Z	added 250 packages, and audited 251 packages in 4s
+2025-12-08T16:24:26.551312Z	
+2025-12-08T16:24:26.551586Z	43 packages are looking for funding
+2025-12-08T16:24:26.551663Z	  run `npm fund` for details
+2025-12-08T16:24:26.559134Z	
+2025-12-08T16:24:26.559324Z	2 low severity vulnerabilities
+2025-12-08T16:24:26.559545Z	
+2025-12-08T16:24:26.559701Z	To address all issues, run:
+2025-12-08T16:24:26.559808Z	  npm audit fix --force
+2025-12-08T16:24:26.559907Z	
+2025-12-08T16:24:26.560013Z	Run `npm audit` for details.
+2025-12-08T16:24:26.590193Z	Executing user command: npm run build
+2025-12-08T16:24:26.970758Z	
+2025-12-08T16:24:26.971028Z	> saved-hstory-of-armanlawfirm.ir-based-of-adl-pendar-based-of-dadgar-ai-with-insurance-armanlawfirm.ir@0.0.0 build
+2025-12-08T16:24:26.971183Z	> vite build
+2025-12-08T16:24:26.971341Z	
+2025-12-08T16:24:27.250249Z	[36mvite v6.4.1 [32mbuilding for production...[36m[39m
+2025-12-08T16:24:27.321322Z	
+2025-12-08T16:24:27.321677Z	/index.css doesn't exist at build time, it will remain unchanged to be resolved at runtime
+2025-12-08T16:24:27.329253Z	transforming...
+2025-12-08T16:24:27.402866Z	[32m✓[39m 6 modules transformed.
+2025-12-08T16:24:27.408313Z	[31m✗[39m Build failed in 130ms
+2025-12-08T16:24:27.408818Z	[31merror during build:
+2025-12-08T16:24:27.409031Z	[31m[vite]: Rollup failed to resolve import "@tanstack/react-query" from "/opt/buildhome/repo/App.tsx".
+2025-12-08T16:24:27.409474Z	This is most likely unintended because it can break your application at runtime.
+2025-12-08T16:24:27.409886Z	If you do want to externalize this module explicitly add it to
+2025-12-08T16:24:27.41003Z	`build.rollupOptions.external`[31m
+2025-12-08T16:24:27.410149Z	    at viteLog (file:///opt/buildhome/repo/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46374:15)
+2025-12-08T16:24:27.410246Z	    at file:///opt/buildhome/repo/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46432:18
+2025-12-08T16:24:27.41039Z	    at onwarn (file:///opt/buildhome/repo/node_modules/@vitejs/plugin-react/dist/index.js:76:7)
+2025-12-08T16:24:27.410496Z	    at file:///opt/buildhome/repo/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46430:7
+2025-12-08T16:24:27.410606Z	    at onRollupLog (file:///opt/buildhome/repo/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46422:5)
+2025-12-08T16:24:27.410704Z	    at onLog (file:///opt/buildhome/repo/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46072:7)
+2025-12-08T16:24:27.410819Z	    at file:///opt/buildhome/repo/node_modules/rollup/dist/es/shared/node-entry.js:20961:32
+2025-12-08T16:24:27.410928Z	    at Object.logger [as onLog] (file:///opt/buildhome/repo/node_modules/rollup/dist/es/shared/node-entry.js:22848:9)
+2025-12-08T16:24:27.411033Z	    at ModuleLoader.handleInvalidResolvedId (file:///opt/buildhome/repo/node_modules/rollup/dist/es/shared/node-entry.js:21592:26)
+2025-12-08T16:24:27.411115Z	    at file:///opt/buildhome/repo/node_modules/rollup/dist/es/shared/node-entry.js:21550:26[39m
+2025-12-08T16:24:27.430393Z	Failed: Error while executing user command. Exited with error code: 1
+2025-12-08T16:24:27.440497Z	Failed: build command exited with code: 1
+2025-12-08T16:24:29.596685Z	Failed: error occurred while running build command

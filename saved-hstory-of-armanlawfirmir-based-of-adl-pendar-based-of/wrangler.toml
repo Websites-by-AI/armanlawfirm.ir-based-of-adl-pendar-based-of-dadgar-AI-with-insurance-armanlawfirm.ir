@@ -1,0 +1,41 @@
+# ─────────────────────────────────────────────────────────────
+#  Cloudflare Pages Configuration — Arman Law Firm
+#  All-in-one: Static Frontend + Serverless Edge Functions
+#
+#  Deployment:
+#    1. Push to GitHub → Cloudflare Pages auto-builds
+#    2. Or: npx wrangler pages deploy dist
+#
+#  Add secrets in Cloudflare dashboard:
+#    Pages → your-project → Settings → Environment Variables
+# ─────────────────────────────────────────────────────────────
+
+name = "armanlawfirm"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "dist"
+
+# ── Plain (non-secret) environment variables ──────────────────
+[vars]
+NODE_VERSION = "20"
+NODE_ENV = "production"
+
+# ── Build settings ────────────────────────────────────────────
+[build]
+command = "npm install && npm run build"
+
+[build.environment]
+NODE_VERSION = "20"
+
+# ── Development (local wrangler pages dev) ────────────────────
+[dev]
+port = 8788
+local_protocol = "http"
+
+# ─────────────────────────────────────────────────────────────
+#  SECRET variables — set these in the Cloudflare dashboard:
+#  Pages → armanlawfirm → Settings → Environment Variables
+#
+#  GEMINI_API_KEY        → your Google AI key (mark as Secret)
+#  SUPABASE_URL          → your Supabase project URL
+#  SUPABASE_ANON_KEY     → your Supabase anon key (mark as Secret)
+# ─────────────────────────────────────────────────────────────

@@ -1,0 +1,41 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "@octokit/rest": "^22.0.1",
+    "@tanstack/react-query": "^5.90.12",
+    "@types/connect-pg-simple": "^7.0.3",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/express-session": "^1.18.2",
+    "@types/leaflet": "^1.9.21",
+    "@types/memoizee": "^0.4.12",
+    "@types/multer": "^2.0.0",
+    "@types/passport": "^1.0.17",
+    "@types/ws": "^8.18.1",
+    "connect-pg-simple": "^10.0.0",
+    "cors": "^2.8.5",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.0",
+    "esbuild": "^0.27.1",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2",
+    "leaflet": "^1.9.4",
+    "memoizee": "^0.4.17",
+    "multer": "^2.0.2",
+    "openid-client": "^6.8.1",
+    "passport": "^0.7.0",
+    "react-leaflet": "^5.0.0",
+    "tsx": "^4.21.0",
+    "ws": "^8.18.3"
+  }
+}
