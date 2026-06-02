@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage, PageKey, useAppearance, THEME_PRESETS } from '../types';
 import SeoChecker from './SeoChecker';
 import { getSeoAudits, SeoAuditData } from '../services/dbService';
@@ -47,19 +47,19 @@ const WordPressDashboard: React.FC<WordPressDashboardProps> = ({ setPage, userRo
     ]);
 
     const menuItems = [
-        { name: 'Dashboard', icon: 'dashicons-dashboard', active: activeMenu === 'Dashboard' },
-        { name: 'Posts', icon: 'dashicons-admin-post', badge: 2, active: activeMenu === 'Posts' },
-        { name: 'Media', icon: 'dashicons-admin-media', active: activeMenu === 'Media' },
-        { name: 'Pages', icon: 'dashicons-admin-page', active: activeMenu === 'Pages' },
-        { name: 'Comments', icon: 'dashicons-admin-comments', badge: 1, active: activeMenu === 'Comments' },
-        { name: 'SEO Check', icon: 'dashicons-chart-bar', active: activeMenu === 'SEO Check' }, // Added SEO Menu
-        // Only show Appearance, Plugins, Users, Settings to Admin
+        { name: 'Dashboard', icon: '🏠', active: activeMenu === 'Dashboard' },
+        { name: 'Posts', icon: '📝', badge: 2, active: activeMenu === 'Posts' },
+        { name: 'Media', icon: '🖼️', active: activeMenu === 'Media' },
+        { name: 'Pages', icon: '📄', active: activeMenu === 'Pages' },
+        { name: 'Comments', icon: '💬', badge: 1, active: activeMenu === 'Comments' },
+        { name: 'SEO Check', icon: '📊', active: activeMenu === 'SEO Check' },
+        { name: 'Deployment', icon: '🚀', active: activeMenu === 'Deployment' },
         ...(userRole === 'admin' ? [
-            { name: 'Appearance', icon: 'dashicons-admin-appearance', active: activeMenu === 'Appearance' },
-            { name: 'Plugins', icon: 'dashicons-admin-plugins', badge: 3, active: activeMenu === 'Plugins' },
-            { name: 'Users', icon: 'dashicons-admin-users', active: activeMenu === 'Users' },
-            { name: 'Tools', icon: 'dashicons-admin-tools', active: activeMenu === 'Tools' },
-            { name: 'Settings', icon: 'dashicons-admin-settings', active: activeMenu === 'Settings' },
+            { name: 'Appearance', icon: '🎨', active: activeMenu === 'Appearance' },
+            { name: 'Plugins', icon: '🔌', badge: 3, active: activeMenu === 'Plugins' },
+            { name: 'Users', icon: '👥', active: activeMenu === 'Users' },
+            { name: 'Tools', icon: '🛠️', active: activeMenu === 'Tools' },
+            { name: 'Settings', icon: '⚙️', active: activeMenu === 'Settings' },
         ] : []),
     ];
 
@@ -206,34 +206,23 @@ const WordPressDashboard: React.FC<WordPressDashboardProps> = ({ setPage, userRo
             {/* Main Content Area */}
             <div className="flex-grow flex flex-col h-full overflow-hidden">
                 {/* Admin Bar */}
-                <div className="h-8 bg-[#1d2327] text-[#f0f0f1] flex items-center justify-between px-3 text-[13px] flex-shrink-0 z-40">
-                    <div className="flex items-center space-x-4">
-                        <div className="flex items-center space-x-1 cursor-pointer hover:text-[#72aee6] group relative">
-                            <span className="font-bold dashicons-wordpress w-5 h-5 flex items-center justify-center bg-white text-[#1d2327] rounded-full p-0.5">W</span>
-                            {/* WP Menu Dropdown */}
-                            <div className="absolute top-8 left-0 w-48 bg-[#1d2327] hidden group-hover:block shadow-lg border-t border-[#2271b1]">
-                                <div className="p-2 hover:bg-[#2271b1]">About WordPress</div>
-                                <div className="p-2 hover:bg-[#2271b1]">Get Involved</div>
+                <div className="bg-[#1d2327] text-[#f0f0f1] flex items-center justify-between px-3 text-[13px] flex-shrink-0 z-40 h-8">
+                    <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1 cursor-pointer hover:text-[#72aee6] group relative">
+                            <span className="font-bold w-5 h-5 flex items-center justify-center bg-[#2271b1] text-white rounded-full text-[10px]">A</span>
+                            <div className="absolute top-8 left-0 w-48 bg-[#1d2327] hidden group-hover:block shadow-lg border-t-2 border-[#2271b1] z-50">
+                                <div className="p-2 hover:bg-[#2271b1] text-xs">About Arman CMS</div>
+                                <div className="p-2 hover:bg-[#2271b1] text-xs">Documentation</div>
                             </div>
                         </div>
-                        <div className="flex items-center space-x-1 cursor-pointer hover:text-[#72aee6]" onClick={() => setPage('home')}>
-                            <span className="dashicons-admin-home">🏠</span>
-                            <span className="font-semibold">Adl Pendar</span>
+                        <div className="flex items-center gap-1 cursor-pointer hover:text-[#72aee6]" onClick={() => setPage('home')}>
+                            🏠 <span className="font-semibold">Arman Law</span>
                         </div>
-                        <div className="flex items-center space-x-1 cursor-pointer hover:text-[#72aee6]">
-                            <span className="dashicons-admin-comments">💬</span>
-                            <span>1</span>
+                        <div className="flex items-center gap-1 cursor-pointer hover:text-[#72aee6]" onClick={() => setActiveMenu('Deployment')}>
+                            🚀 <span>Deploy</span>
                         </div>
-                        <div className="flex items-center space-x-1 cursor-pointer hover:text-[#72aee6] group relative">
-                            <span className="dashicons-plus">➕</span>
-                            <span>New</span>
-                             <div className="absolute top-8 left-0 w-40 bg-[#1d2327] hidden group-hover:block shadow-lg">
-                                <div className="p-2 hover:bg-[#2271b1]">Post</div>
-                                <div className="p-2 hover:bg-[#2271b1]">Media</div>
-                                <div className="p-2 hover:bg-[#2271b1]">Page</div>
-                                <div className="p-2 hover:bg-[#2271b1]">User</div>
-                            </div>
-                        </div>
+                        {/* TEST MODE Badge */}
+                        <span className="bg-yellow-400 text-yellow-900 text-[10px] font-black px-2 py-0.5 rounded-full tracking-wider animate-pulse">TEST MODE</span>
                     </div>
                     <div className="flex items-center space-x-4">
                         {/* Theme Switcher */}
@@ -269,6 +258,33 @@ const WordPressDashboard: React.FC<WordPressDashboardProps> = ({ setPage, userRo
                             <img src="https://messages-prod.27c852f3500f38c1e7786e2c9ff9e48f.r2.cloudflarestorage.com/f0819c9a-22ad-4d4e-9a4b-d8c2ef893dd2/1764579575951-019ad922-8b89-702a-b810-c608609faa9e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=c774f9d56a46165f86a9757e83c2bbc3%2F20251201%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251201T085936Z&X-Amz-Expires=3600&X-Amz-Signature=2de49acd6a4c990786b04ad5454ba37dbbe609a28a39e68561559591ae5dbbc8&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" alt="Avatar" className="w-5 h-5 rounded-sm" />
                         </div>
                     </div>
+                </div>
+
+                {/* Mega Nav Bar — quick access to main app pages */}
+                <div className="bg-white border-b border-[#dcdcde] px-4 flex items-center gap-1 text-[12px] text-[#1d2327] overflow-x-auto flex-shrink-0 h-9">
+                    <span className="text-[#646970] font-semibold whitespace-nowrap mr-2">سایت:</span>
+                    {[
+                        { label: 'خانه', page: 'home' as PageKey | 'home' },
+                        { label: 'داشبورد', page: 'dashboard' as PageKey },
+                        { label: 'تنظیم دادخواست', page: 'legal_drafter' as PageKey },
+                        { label: 'دستیار دادگاه', page: 'court_assistant' as PageKey },
+                        { label: 'تحلیل قرارداد', page: 'contract_analyzer' as PageKey },
+                        { label: 'وکیل‌یاب', page: 'lawyer_finder' as PageKey },
+                        { label: 'نقشه‌یاب', page: 'map_finder' as PageKey },
+                        { label: 'بیمه', page: 'insurance_services' as PageKey },
+                        { label: 'تولید محتوا', page: 'content_hub' as PageKey },
+                        { label: 'تصویرساز', page: 'image_generator' as PageKey },
+                        { label: 'قیمت‌گذاری', page: 'pricing' as PageKey },
+                        { label: '🚀 استقرار', page: null, action: () => setActiveMenu('Deployment') },
+                    ].map((item, i) => (
+                        <button
+                            key={i}
+                            onClick={() => item.action ? item.action() : item.page && setPage(item.page as 'home' | PageKey)}
+                            className="whitespace-nowrap px-2 py-1 rounded hover:bg-[#f0f0f1] hover:text-[#2271b1] transition-colors text-[#1d2327] font-medium"
+                        >
+                            {item.label}
+                        </button>
+                    ))}
                 </div>
 
                 {/* Content Body */}
@@ -353,6 +369,208 @@ const WordPressDashboard: React.FC<WordPressDashboardProps> = ({ setPage, userRo
                                         )}
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    ) : activeMenu === 'Deployment' ? (
+                        /* ── DEPLOYMENT GUIDE PANEL ─────────────────────────── */
+                        <div className="animate-fade-in max-w-4xl space-y-5">
+                            {/* Test Mode Notice */}
+                            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 flex items-start gap-3">
+                                <span className="text-yellow-500 text-xl mt-0.5">⚠️</span>
+                                <div>
+                                    <p className="font-bold text-yellow-800 text-sm">حالت آزمایشی (TEST MODE)</p>
+                                    <p className="text-yellow-700 text-xs mt-0.5">این پنل در حال اجرا روی سرور توسعه (Replit) است. برای انتشار عمومی مراحل زیر را دنبال کنید.</p>
+                                </div>
+                            </div>
+
+                            {/* Company Info */}
+                            <div className="bg-white border border-[#dcdcde] shadow-sm">
+                                <div className="px-4 py-3 border-b border-[#dcdcde] font-semibold text-sm flex items-center gap-2">
+                                    🏢 اطلاعات شرکت / Company Info
+                                </div>
+                                <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                                    {[
+                                        { label: 'نام', value: 'موسسه حقوقی آرمان (Arman Law Firm)' },
+                                        { label: 'دامنه', value: 'armanlawfirm.ir' },
+                                        { label: 'GitHub Org', value: 'Websites-by-AI' },
+                                        { label: 'ایمیل', value: 'info@armanlawfirm.ir' },
+                                        { label: 'آدرس', value: 'تهران، جردن، خیابان طاهری پلاک ۱۸' },
+                                        { label: 'تلفن', value: '۰۲۱-۸۸۸۸۸۸۸۸' },
+                                    ].map((row, i) => (
+                                        <div key={i} className="flex gap-2">
+                                            <span className="text-[#646970] font-semibold w-24 flex-shrink-0">{row.label}:</span>
+                                            <span className="text-[#1d2327] font-mono text-xs bg-[#f6f7f7] px-2 py-0.5 rounded">{row.value}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* GitHub Repo */}
+                            <div className="bg-white border border-[#dcdcde] shadow-sm">
+                                <div className="px-4 py-3 border-b border-[#dcdcde] font-semibold text-sm flex items-center gap-2">
+                                    🐙 مخزن GitHub
+                                </div>
+                                <div className="p-4 space-y-3 text-sm">
+                                    <div className="flex flex-col gap-1">
+                                        <span className="text-[#646970] font-semibold text-xs uppercase tracking-wide">Repository URL</span>
+                                        <a
+                                            href="https://github.com/Websites-by-AI/armanlawfirm.ir-based-of-adl-pendar-based-of-dadgar-AI-with-insurance-armanlawfirm.ir"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="font-mono text-xs text-[#2271b1] hover:underline bg-[#f6f7f7] px-3 py-2 rounded break-all block"
+                                        >
+                                            github.com/Websites-by-AI/armanlawfirm.ir-based-of-adl-pendar-based-of-dadgar-AI-with-insurance-armanlawfirm.ir
+                                        </a>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        {[
+                                            { label: 'Branch', value: 'main' },
+                                            { label: 'زیرپوشه پروژه', value: 'saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of/' },
+                                            { label: 'فایل Build', value: 'package.json (root)' },
+                                            { label: 'دستور Build', value: 'npm run build' },
+                                        ].map((row, i) => (
+                                            <div key={i} className="flex gap-2 items-start">
+                                                <span className="text-[#646970] font-semibold w-32 flex-shrink-0 text-xs">{row.label}:</span>
+                                                <code className="text-xs bg-[#f6f7f7] text-[#1d2327] px-2 py-0.5 rounded font-mono">{row.value}</code>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="bg-[#1d2327] text-[#72aee6] rounded p-3 font-mono text-xs space-y-1">
+                                        <p className="text-[#a7aaad]"># push to GitHub from Replit Shell:</p>
+                                        <p>git add .</p>
+                                        <p>git commit -m "update"</p>
+                                        <p>git push origin main</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Cloudflare Pages */}
+                            <div className="bg-white border border-[#dcdcde] shadow-sm">
+                                <div className="px-4 py-3 border-b border-[#dcdcde] font-semibold text-sm flex items-center gap-2">
+                                    ☁️ تنظیمات Cloudflare Pages
+                                </div>
+                                <div className="p-4 space-y-4 text-sm">
+                                    <p className="text-[#646970] text-xs">در داشبورد Cloudflare → Pages → پروژه شما → Settings → Build & Deploy این مقادیر را وارد کنید:</p>
+                                    <div className="overflow-x-auto">
+                                        <table className="w-full text-xs border border-[#dcdcde]">
+                                            <thead>
+                                                <tr className="bg-[#f6f7f7]">
+                                                    <th className="text-left px-3 py-2 border-b border-[#dcdcde] font-semibold text-[#1d2327]">فیلد Cloudflare</th>
+                                                    <th className="text-left px-3 py-2 border-b border-[#dcdcde] font-semibold text-[#1d2327]">مقدار</th>
+                                                    <th className="text-left px-3 py-2 border-b border-[#dcdcde] font-semibold text-[#1d2327]">توضیح</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {[
+                                                    { field: 'Production branch', val: 'main', note: 'شاخه اصلی Git' },
+                                                    { field: 'Build command', val: 'npm run build', note: 'از root package.json اجرا می‌شود' },
+                                                    { field: 'Build output dir', val: '(خالی بگذارید)', note: 'wrangler.toml خودکار تنظیم می‌کند' },
+                                                    { field: 'Root directory', val: '(خالی بگذارید)', note: 'پروژه در root است' },
+                                                    { field: 'NODE_VERSION', val: '20', note: 'متغیر محیطی Build' },
+                                                    { field: 'GEMINI_API_KEY', val: '●●●●●●●●●●●●', note: '⚠️ از Cloudflare Secrets وارد کنید' },
+                                                    { field: 'VITE_SUPABASE_URL', val: 'https://xxxx.supabase.co', note: 'آدرس پروژه Supabase' },
+                                                    { field: 'VITE_SUPABASE_ANON_KEY', val: '●●●●●●●●●●●●', note: '⚠️ از Cloudflare Secrets وارد کنید' },
+                                                ].map((row, i) => (
+                                                    <tr key={i} className="border-b border-[#f0f0f1] hover:bg-[#f9f9f9]">
+                                                        <td className="px-3 py-2 font-mono text-[#2271b1] font-semibold">{row.field}</td>
+                                                        <td className="px-3 py-2"><code className="bg-[#f0f0f1] px-1.5 py-0.5 rounded font-mono">{row.val}</code></td>
+                                                        <td className="px-3 py-2 text-[#646970]">{row.note}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div className="bg-blue-50 border border-blue-200 rounded p-3 text-xs text-blue-800">
+                                        <p className="font-bold mb-1">✅ wrangler.toml در root پروژه تنظیم شده:</p>
+                                        <code className="block bg-white border border-blue-100 rounded p-2 font-mono whitespace-pre text-[11px]">{`name = "armanlawfirm"\npages_build_output_dir = "saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of/dist"`}</code>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Step-by-step deploy */}
+                            <div className="bg-white border border-[#dcdcde] shadow-sm">
+                                <div className="px-4 py-3 border-b border-[#dcdcde] font-semibold text-sm flex items-center gap-2">
+                                    📋 مراحل استقرار گام‌به‌گام
+                                </div>
+                                <div className="p-4">
+                                    <ol className="space-y-4 text-sm">
+                                        {[
+                                            {
+                                                n: 1,
+                                                title: 'تغییرات را push کنید',
+                                                desc: 'از Shell ریپلیت دستور git push origin main را اجرا کنید.',
+                                                code: 'git add . && git commit -m "update" && git push origin main',
+                                            },
+                                            {
+                                                n: 2,
+                                                title: 'ورود به Cloudflare Pages',
+                                                desc: 'به dash.cloudflare.com بروید → Workers & Pages → پروژه armanlawfirm',
+                                                code: 'https://dash.cloudflare.com',
+                                            },
+                                            {
+                                                n: 3,
+                                                title: 'متغیرهای محیطی را تنظیم کنید',
+                                                desc: 'Settings → Environment Variables → کلیدهای GEMINI_API_KEY و Supabase را اضافه کنید.',
+                                                code: null,
+                                            },
+                                            {
+                                                n: 4,
+                                                title: 'Deploy را تریگر کنید',
+                                                desc: 'Deployments → Retry deployment یا کافی است git push کنید — Cloudflare خودکار build می‌کند.',
+                                                code: null,
+                                            },
+                                            {
+                                                n: 5,
+                                                title: 'دامنه سفارشی',
+                                                desc: 'Custom Domains → armanlawfirm.ir را اضافه و DNS را در ثبت‌کننده دامنه به Cloudflare هدایت کنید.',
+                                                code: 'CNAME: armanlawfirm.ir → armanlawfirm.pages.dev',
+                                            },
+                                        ].map((step) => (
+                                            <li key={step.n} className="flex gap-3">
+                                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#2271b1] text-white flex items-center justify-center text-xs font-bold">{step.n}</span>
+                                                <div className="flex-1">
+                                                    <p className="font-semibold text-[#1d2327]">{step.title}</p>
+                                                    <p className="text-[#646970] text-xs mt-0.5">{step.desc}</p>
+                                                    {step.code && (
+                                                        <code className="block mt-1.5 bg-[#1d2327] text-[#72aee6] px-3 py-1.5 rounded text-xs font-mono">{step.code}</code>
+                                                    )}
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ol>
+                                </div>
+                            </div>
+
+                            {/* Live links */}
+                            <div className="bg-white border border-[#dcdcde] shadow-sm">
+                                <div className="px-4 py-3 border-b border-[#dcdcde] font-semibold text-sm flex items-center gap-2">
+                                    🔗 لینک‌های دسترسی
+                                </div>
+                                <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    {[
+                                        { label: '🟡 Replit Dev', url: 'https://replit.com', note: 'محیط توسعه — TEST MODE' },
+                                        { label: '☁️ Cloudflare Pages', url: 'https://armanlawfirm.pages.dev', note: 'نسخه زنده پس از deploy' },
+                                        { label: '🌐 دامنه اصلی', url: 'https://armanlawfirm.ir', note: 'پس از اتصال DNS' },
+                                        { label: '🐙 GitHub', url: 'https://github.com/Websites-by-AI', note: 'مخزن کد' },
+                                        { label: '🗄️ Supabase', url: 'https://supabase.com/dashboard', note: 'پایگاه داده و احراز هویت' },
+                                        { label: '🤖 Gemini AI', url: 'https://aistudio.google.com/apikey', note: 'مدیریت API Key هوش مصنوعی' },
+                                    ].map((link, i) => (
+                                        <a
+                                            key={i}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-start gap-3 p-3 border border-[#dcdcde] rounded hover:border-[#2271b1] hover:bg-[#f0f6fc] transition-colors group"
+                                        >
+                                            <div className="flex-1">
+                                                <p className="font-semibold text-[#2271b1] group-hover:underline text-xs">{link.label}</p>
+                                                <p className="text-[#646970] text-[10px] mt-0.5">{link.note}</p>
+                                                <code className="text-[10px] text-[#646970] font-mono">{link.url}</code>
+                                            </div>
+                                            <span className="text-[#2271b1] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ) : activeMenu === 'Posts' ? (
