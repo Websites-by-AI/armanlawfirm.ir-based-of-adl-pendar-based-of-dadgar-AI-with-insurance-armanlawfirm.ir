@@ -2,38 +2,29 @@
 #  Cloudflare Pages — Root Configuration
 #  Arman Law Firm | موسسه حقوقی آرمان
 #
-#  This file lives at the repo root so Cloudflare Pages
-#  can find it automatically when building from GitHub.
+#  NOTE: Cloudflare Pages wrangler.toml does NOT support
+#  [build] or [build.environment] sections (those are Workers-only).
+#  Build command is set in the Cloudflare Pages dashboard.
 # ─────────────────────────────────────────────────────────────
 
 name = "armanlawfirm"
 compatibility_date = "2024-09-23"
-
-# Build output is inside the subfolder after npm run build
 pages_build_output_dir = "saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of/dist"
 
-# ── Plain environment variables ───────────────────────────────
+# ── Plain (non-secret) vars available to Pages Functions ─────
 [vars]
 NODE_VERSION = "20"
 NODE_ENV = "production"
 
-# ── Build command (runs from repo root) ───────────────────────
-[build]
-command = "npm run build"
-
-[build.environment]
-NODE_VERSION = "20"
-
-# ── Local dev (wrangler pages dev) ───────────────────────────
-[dev]
-port = 8788
-local_protocol = "http"
-
 # ─────────────────────────────────────────────────────────────
-#  SECRET variables — add these in Cloudflare dashboard:
-#  Pages → armanlawfirm → Settings → Environment Variables
+#  Build settings — configure these in Cloudflare Pages dashboard:
+#    Build command:        npm run build
+#    Build output dir:     saved-hstory-of-armanlawfirmir-based-of-adl-pendar-based-of/dist
+#    Root directory:       (leave blank)
+#    Node.js version:      20
 #
-#  GEMINI_API_KEY     → your Google AI key  (mark as Secret)
-#  SUPABASE_URL       → your Supabase URL   (Plain)
-#  SUPABASE_ANON_KEY  → your anon key       (mark as Secret)
+#  Secret env vars to add in dashboard (Settings → Env Variables):
+#    GEMINI_API_KEY        → your Google AI key   (Secret)
+#    SUPABASE_URL          → your Supabase URL     (Plain)
+#    SUPABASE_ANON_KEY     → your Supabase anon key (Secret)
 # ─────────────────────────────────────────────────────────────
